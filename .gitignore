@@ -25,6 +25,7 @@ replay_pid*
 .credentials.json
 history.jsonl
 settings.json
+settings.local.json
 file-history/
 debug/
 projects/
