@@ -1,0 +1,45 @@
+{
+  "database_systems": {
+    "Silberschatz": {
+      "full_title": "Database System Concepts",
+      "edition": "7th Edition",
+      "authors": ["Abraham Silberschatz", "Henry F. Korth", "S. Sudarshan"],
+      "chapters": {
+        "1": "Introduction",
+        "2": "Introduction to the Relational Model",
+        "3": "Introduction to SQL",
+        "4": "Intermediate SQL",
+        "5": "Advanced SQL",
+        "6": "Formal Relational Query Languages",
+        "7": "Entity-Relationship Model",
+        "12": "Query Processing",
+        "14": "Transactions",
+        "15": "Concurrency Control"
+      }
+    },
+    "Elmasri_Navathe": {
+      "full_title": "Fundamentals of Database Systems",
+      "edition": "7th Edition",
+      "authors": ["Ramez Elmasri", "Shamkant B. Navathe"],
+      "chapters": {
+        "1": "Databases and Database Users",
+        "2": "Database System Concepts and Architecture",
+        "3": "Data Modeling Using the Entity-Relationship Model",
+        "7": "Relational Database Design",
+        "8": "SQL",
+        "9": "ER-to-Relational Mapping",
+        "14": "Normalization for Relational Databases",
+        "20": "Transaction Processing Concepts",
+        "21": "Concurrency Control Techniques"
+      }
+    }
+  },
+  "topics": {
+    "normalization": ["Silberschatz Ch.7", "Elmasri_Navathe Ch.14"],
+    "sql": ["Silberschatz Ch.3-5", "Elmasri_Navathe Ch.8"],
+    "transactions": ["Silberschatz Ch.14-15", "Elmasri_Navathe Ch.20-21"],
+    "er_modeling": ["Silberschatz Ch.7", "Elmasri_Navathe Ch.3,9"],
+    "query_processing": ["Silberschatz Ch.12"],
+    "concurrency": ["Silberschatz Ch.15", "Elmasri_Navathe Ch.21"]
+  }
+}

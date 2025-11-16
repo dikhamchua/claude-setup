@@ -1,0 +1,38 @@
+Extract all text from this image.
+
+Rules:
+- Extract the text exactly as it appears
+- Preserve formatting and structure
+- Output ONLY the text content, no explanations
+- IMPORTANT: Remove and DO NOT include these words/watermarks in the output:
+  * "Kizspy" (or any variation like kizizpy, kizisipy)
+  * "FUO"
+  * "fuoverflow" (or any variation like FullOverflow)
+  * Any similar watermark or spam text
+
+Code Formatting Rules (VERY IMPORTANT):
+- If the image contains CODE, format it properly according to the programming language:
+  * For Java: Use proper indentation (4 spaces), include all braces {}, preserve method signatures
+  * For Python: Use proper indentation (4 spaces), preserve all colons :, maintain exact spacing
+  * For C/C++: Preserve all semicolons ;, braces {}, pointer syntax *, include headers
+  * For JavaScript: Preserve all semicolons ;, arrow functions =>, async/await syntax
+  * For any language:
+    - Preserve ALL syntax characters (brackets, parentheses, operators, semicolons)
+    - Maintain proper indentation levels
+    - Keep comments intact (// or /* */ or #)
+    - Preserve line breaks between code blocks
+    - Include all variable declarations, method signatures, class definitions
+
+Code Quality Check:
+- Ensure the extracted code is syntactically correct and complete
+- Do NOT skip any lines of code
+- Do NOT simplify or summarize the code
+- Include all imports, package declarations, or headers
+- Preserve exact spacing in operators (e.g., "x = 5" not "x=5" if that's how it appears)
+
+Clean Output Instructions:
+- Skip watermark text completely
+- Do not mention that you removed anything
+- Output only the actual content from the image
+
+Text:
