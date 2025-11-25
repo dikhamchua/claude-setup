@@ -116,4 +116,135 @@ Each object must follow the schema below:
 **End of Prompt**
 
 ```
+
+---
+
+## JSON Encoding Rules for Quiz Application
+
+```json
+{
+  "title": "JSON Encoding Rules for Quiz Application",
+  "description": "Rules and guidelines for creating JSON files that work with the quiz application to avoid UTF-8 encoding errors",
+  "problem": "Application throws 'Malformed UTF-8 characters, possibly incorrectly encoded' error when using special characters directly",
+  "solution": "Use HTML entities to encode special characters",
+
+  "html_entities_mapping": {
+    "=": "&#61;",
+    "+": "&#43;",
+    "-": "&#45;",
+    "%": "&#37;",
+    "(": "&#40;",
+    ")": "&#41;",
+    "*": "&#42;",
+    "/": "&#47;",
+    "<": "&#60;",
+    ">": "&#62;",
+    "&": "&#38;",
+    "!": "&#33;",
+    "|": "&#124;",
+    "^": "&#94;",
+    "~": "&#126;",
+    "[": "&#91;",
+    "]": "&#93;",
+    "{": "&#123;",
+    "}": "&#125;"
+  },
+
+  "examples": {
+    "before": "rear = (rear + 1) % capacity",
+    "after": "rear &#61; &#40;rear &#43; 1&#41; &#37; capacity",
+
+    "before_2": "front == rear",
+    "after_2": "front &#61;&#61; rear",
+
+    "before_3": "array[index]",
+    "after_3": "array&#91;index&#93;"
+  },
+
+  "working_example": {
+    "title": "Example question with special characters",
+    "explain_question": "This is how to format questions with code",
+    "type": "single_choice",
+    "number_of_options": 4,
+    "options": [
+      "rear &#61; rear &#43; 1",
+      "rear &#61; &#40;rear &#43; 1&#41; &#37; capacity",
+      "Check if front &#61;&#61; rear",
+      "array&#91;index&#93; &#43; 1"
+    ],
+    "correct_answers": [2]
+  },
+
+  "notes": [
+    "Always use HTML entities for mathematical operators and brackets",
+    "Regular text and alphanumeric characters do not need encoding",
+    "The application will automatically decode HTML entities for display",
+    "Use UTF-8 encoding without BOM when saving the file",
+    "Test each file after creation to ensure it imports correctly"
+  ],
+
+  "what_did_not_work": [
+    "Unicode escape sequences like \\u003d",
+    "Markdown backticks like `code` for inline code with special characters",
+    "Adding spaces between operators",
+    "Using plain UTF-8 with special characters directly",
+    "Using ensure_ascii=False in Python json.dump",
+    "Using newline characters \\n and backticks ``` without HTML entities in code blocks"
+  ],
+
+  "what_works": [
+    "HTML entities (&#XX;) for special characters",
+    "Plain text for regular characters",
+    "UTF-8 encoding with HTML entities",
+    "Markdown code blocks with ```java syntax combined with HTML entities",
+    "Inline code with backtick ` for text without special characters (variables, method names)"
+  ],
+
+  "markdown_support": {
+    "description": "The application supports markdown rendering",
+    "code_blocks": {
+      "syntax": "```java\\ncode here\\n```",
+      "important": "MUST use HTML entities for all special characters inside code blocks",
+      "example": "```java\\nQueue&#60;Integer&#62; q &#61; new LinkedList&#60;&#62;&#40;&#41;;\\n```"
+    },
+    "inline_code": {
+      "syntax": "`text here`",
+      "safe_for": "Variable names, method names, simple text without special characters",
+      "examples": [
+        "`capacity = 3`",
+        "`enqueue()`",
+        "`poll()`",
+        "`front` and `rear`"
+      ],
+      "warning": "Inline backtick can be used for display text, but ALL code in title/options MUST use HTML entities"
+    }
+  },
+
+  "best_practices": [
+    "Always encode ALL special characters in code blocks with HTML entities",
+    "Use markdown code blocks (```java) for multi-line code",
+    "Use inline backtick (`) for variable/method names in explanations only",
+    "Split large question sets into smaller files (5 questions per file) for easier testing",
+    "Test each file immediately after creation to catch encoding issues early",
+    "Keep a copy of this encoding rules file in the project",
+    "When in doubt, use HTML entities - they always work"
+  ],
+
+  "common_mistakes": [
+    "Forgetting to encode = sign in assignments",
+    "Not encoding parentheses () in method calls",
+    "Missing encoding for brackets [] in array access",
+    "Not encoding angle brackets <> in generics",
+    "Forgetting to encode % in modulo operations",
+    "Using backticks with special characters directly"
+  ],
+
+  "lessons_learned": [
+    "Even with markdown support, HTML entities are REQUIRED for code",
+    "Markdown rendering happens AFTER HTML entity decoding",
+    "The application cannot handle raw special characters in JSON strings",
+    "File splitting helps isolate and debug encoding issues",
+    "Consistent encoding across all files prevents import errors"
+  ]
+}
 ```
